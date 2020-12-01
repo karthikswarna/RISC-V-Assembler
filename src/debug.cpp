@@ -326,7 +326,7 @@ int main(int argc, char *argv[])
             if(op.back() == ':')                                // Its a label
             {
                 PC--;
-                // fout << endl;
+                fout << endl;
                 continue;
             }
             else
@@ -347,7 +347,7 @@ int main(int argc, char *argv[])
                 }
                 
                 Opcode current_inst = OPTAB[op];
-                // fout << "0x" << hex << (PC + BaseAddress) * 4 << ": ";
+                fout << "0x" << hex << (PC + BaseAddress) * 4 << ": ";
                 
                 if(current_inst.format == "R")
                 {
@@ -367,8 +367,7 @@ int main(int argc, char *argv[])
                         continue;
                     }
 
-                    // fout << current_inst.func7 << " " << getRegisterCode(temp3)  << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
-                    fout << current_inst.func7 << getRegisterCode(temp3) << getRegisterCode(temp2) << current_inst.func3 << getRegisterCode(temp1) << current_inst.code << endl;
+                    fout << current_inst.func7 << " " << getRegisterCode(temp3)  << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
                 }
                 else if(current_inst.format == "I")
                 {
@@ -478,8 +477,7 @@ int main(int argc, char *argv[])
                     else
                         temp3 = immTobin(temp4);
                     // reverse(temp3.begin(), temp3.end());
-                    // fout << temp3 << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
-                    fout << temp3 << getRegisterCode(temp2) << current_inst.func3 << getRegisterCode(temp1) << current_inst.code << endl;
+                    fout << temp3 << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
                 }
                 else if(current_inst.format == "S")
                 {
@@ -539,8 +537,7 @@ int main(int argc, char *argv[])
 
                     temp3 = immTobin(temp4);
                     // reverse(temp3.begin(), temp3.end());
-                    // fout << temp3.substr(0, 7) << " " << getRegisterCode(temp1) << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << temp3.substr(7, 5) << " " << current_inst.code << endl;
-                    fout << temp3.substr(0, 7) << getRegisterCode(temp1) << getRegisterCode(temp2) << current_inst.func3 << temp3.substr(7, 5) << current_inst.code << endl;
+                    fout << temp3.substr(0, 7) << " " << getRegisterCode(temp1) << " " << getRegisterCode(temp2) << " " << current_inst.func3 << " " << temp3.substr(7, 5) << " " << current_inst.code << endl;
                 }
                 else if(current_inst.format == "SB")
                 {
@@ -605,8 +602,7 @@ int main(int argc, char *argv[])
                         }
                     }
                     temp3 = immTobin(temp4);
-                    // fout << temp3.at(0) << temp3.substr(2, 6) << " " << getRegisterCode(temp2) << " " << getRegisterCode(temp1) << " " << current_inst.func3 << " " << temp3.substr(8, 4) << temp3.at(1) << " " << current_inst.code << endl;
-                    fout << temp3.at(0) << temp3.substr(2, 6) << getRegisterCode(temp2) << getRegisterCode(temp1) << current_inst.func3 << temp3.substr(8, 4) << temp3.at(1) << current_inst.code << endl;
+                    fout << temp3.at(0) << temp3.substr(2, 6) << " " << getRegisterCode(temp2) << " " << getRegisterCode(temp1) << " " << current_inst.func3 << " " << temp3.substr(8, 4) << temp3.at(1) << " " << current_inst.code << endl;
                 }
                 else if(current_inst.format == "U")
                 {
@@ -621,8 +617,7 @@ int main(int argc, char *argv[])
                     Opcode optab = OPTAB[temp1];
                     string u_op = optab.code;
                     string imm = bitset<20>(temp3).to_string();
-                    // fout<<imm<<" "<<temp4<<" "<<u_op<<endl;
-                    fout << imm << temp4 << u_op << endl;
+                    fout<<imm<<" "<<temp4<<" "<<u_op<<endl;
 
                 }
                 else if(current_inst.format == "UJ")
@@ -673,8 +668,7 @@ int main(int argc, char *argv[])
                         continue;
                     }
                     // reverse(temp3.begin(), temp3.end());
-                    // fout << temp3.at(0) << temp3.substr(10, 10) << temp3.at(9) << temp3.substr(1, 8) << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
-                    fout << temp3.at(0) << temp3.substr(10, 10) << temp3.at(9) << temp3.substr(1, 8) << getRegisterCode(temp1) << current_inst.code << endl;
+                    fout << temp3.at(0) << temp3.substr(10, 10) << temp3.at(9) << temp3.substr(1, 8) << " " << getRegisterCode(temp1) << " " << current_inst.code << endl;
                 }
             }
         }

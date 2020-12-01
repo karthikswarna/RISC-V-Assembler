@@ -2,7 +2,7 @@ addi s6, zero, 16
 add s7, zero, zero
 add sp, zero, zero
 add s8, zero, zero
-addi ra, zero, _End
+addi ra, zero, _$End
 sw ra, 0(sp)
 addi sp, sp, 4
 sw s6, 0(sp)
@@ -128,7 +128,7 @@ lw s3, 0(s8)
 sw s3, 0(sp)
 addi sp, sp, 4
 
-addi ra, zero, _Ret1
+addi ra, zero, _$Ret1
 sw ra, 0(sp)
 addi sp, sp, 4
 sw s6, 0(sp)
@@ -140,7 +140,7 @@ addi sp, sp, 4
 addi s7, sp, -24
 add s6, sp, zero
 jal zero, _L1
-_#Ret1:
+_$Ret1:
 
 addi sp, sp, -4
 lw s3, 0(sp)
@@ -214,4 +214,4 @@ addi s4, fp, -12
 lw s6, 0(s4)
 jal ra, 0
 
-_#End:
+_$End:
