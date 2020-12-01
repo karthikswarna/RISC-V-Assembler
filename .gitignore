@@ -1,0 +1,9 @@
+*.out
+*.txt
+*.exe
+*.o
+/src/*.out
+/src/*.txt
+/src/*.exe
+/src/*.o
+test.cpp
